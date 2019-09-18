@@ -14,6 +14,7 @@ public class Problem2 {
 		int stringLength;
 		String inputString;
 		
+		
 		for (int i = 0; i < testCaseCount; i++) {
 			stringLength = myInput.nextInt();
 			inputString = myInput.next();
@@ -45,7 +46,7 @@ public class Problem2 {
 		} else if (inputString.charAt(position) == 'Z') {
 			return inputString.substring(0, position) + "Z" + inputString.substring(position + 1);
 		} else {
-			return inputString.substring(0, position) + (inputString.charAt(position)+1) + inputString.substring(position + 1);
+			return inputString.substring(0, position) + Character.toString((char) (inputString.charAt(position)+1)) + inputString.substring(position + 1);
 		}
 	}
 	
@@ -55,7 +56,7 @@ public class Problem2 {
 		} else if (inputString.charAt(position) == 'Z') {
 			return inputString.substring(0, position) + "Z" + inputString.substring(position + 1);
 		} else {
-			return inputString.substring(0, position) + (inputString.charAt(position)-1) + inputString.substring(position + 1);
+			return inputString.substring(0, position) + Character.toString((char) (inputString.charAt(position)-1)) + inputString.substring(position + 1);
 		}
 	}
 	

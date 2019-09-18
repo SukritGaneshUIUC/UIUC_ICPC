@@ -15,13 +15,28 @@ public class Problem3 {
 		
 		sort(array);
 		
+		
 		for (int i = 0; i < operations; i++) {
 			array[size/2] = array[size/2] + 1;
-			sort(array);
+			sortCenterElement(array);
 		}
 		
 		System.out.println(array[size/2]);
 
+	}
+	
+	public static void sortCenterElement(int arr[]) {
+		if (arr.length == 1) {
+			return;
+		}
+		
+		int position = arr.length/2;
+		
+		while (position < arr.length - 1 && arr[position] > arr[position + 1]) {
+			swap(arr, position, position + 1);
+			position++;
+		}
+		
 	}
 	
 	public static void sort(int arr[]) 
@@ -31,9 +46,6 @@ public class Problem3 {
             int key = arr[i]; 
             int j = i - 1; 
   
-            /* Move elements of arr[0..i-1], that are 
-               greater than key, to one position ahead 
-               of their current position */
             while (j >= 0 && arr[j] > key) { 
                 arr[j + 1] = arr[j]; 
                 j = j - 1; 
@@ -41,5 +53,11 @@ public class Problem3 {
             arr[j + 1] = key; 
         } 
     } 
+	
+	public static void swap(int arr[], int index1, int index2) {
+		int temp = arr[index1];
+		arr[index1] = arr[index2];
+		arr[index2] = temp;
+	}
 
 }
